@@ -87,6 +87,7 @@
                 </div>
 
                 <div class="links">
+<<<<<<< HEAD
                     <a href="{{url('/Ram')}}">Docs</a>
                     <a href="{{url('/Shyam')}}">Laracasts</a> 
                     <a href="{{url('/Hari')}}">News</a>
@@ -94,6 +95,15 @@
                     <a href="{{url('/Krishna')}}">Nova</a>
                     <a href="{{route('route1')}}">Forge</a>
                     <a href="{{route('route2')}}">GitHub</a>
+=======
+                    <a href="https://laravel.com/docs">Ramnaresh</a>
+                    <a href="https://laracasts.com">avishek</a>
+                    <a href="https://laravel-news.com">santosh jha</a>
+                    <a href="https://blog.laravel.com">Blog</a>
+                    <a href="https://nova.laravel.com">Nova</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
+>>>>>>> 7950d2c76a3fb087695835d5366c27eae1d8e627
                 </div>
 
                     
