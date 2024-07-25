@@ -46,7 +46,7 @@
 
             .title {
                 font-size: 84px;
-              
+               
             }
 
             .links > a {
@@ -81,20 +81,27 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md ">
                     Laravel 
                    
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{url('/Ram')}}">Docs</a>
+                    <a href="{{url('/Shyam')}}">Laracasts</a> 
+                    <a href="{{url('/Hari')}}">News</a>
+                    <a href="{{url('/Jp')}}">Blog</a>
+                    <a href="{{url('/Krishna')}}">Nova</a>
+                    <a href="{{route('route1')}}">Forge</a>
+                    <a href="{{route('route2')}}">GitHub</a>
                 </div>
+
+                    
+                <div>
+                <a href="{{route('table5')}}">Table-5</a>
+                </div>
+                     
+
             </div>
         </div>
     </body>
