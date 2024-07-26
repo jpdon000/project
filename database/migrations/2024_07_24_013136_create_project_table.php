@@ -14,10 +14,16 @@ class CreateProjectTable extends Migration
     public function up()
     {
         Schema::create('project', function (Blueprint $table) {
-            $table->id();
+            $table->integer('Id');
             $table->string('Name',30);
-            $table->string('Address',50);
-            $table->string('Email',40);
+            $table->text('Address',60);
+            $table->string('Email',50);
+            $table->enum('Gender',["M","F","O"])->nullable();
+            $table->date('DOB')->nullable();
+            $table->string('Password');
+            $table->boolean('Status')->default(1);
+            $table->integer('Points')->defualt(0);
+
         });
     }
 
