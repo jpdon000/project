@@ -16,8 +16,8 @@ class CreateProjectTable extends Migration
         Schema::create('project', function (Blueprint $table) {
             $table->integer('Id');
             $table->string('Name',30);
-            $table->text('Address',60);
-            $table->string('Email',50);
+            $table->string('Address',60);
+            $table->string('Email_verifed_at',50);
             $table->enum('Gender',["M","F","O"])->nullable();
             $table->date('DOB')->nullable();
             $table->string('Password');

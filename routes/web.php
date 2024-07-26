@@ -18,30 +18,30 @@ Route::get('/', function () {
 
 // Through url()..............................................!!
 Route::get('/Ram', function(){
-    echo"Hell Ram how are you Through url";
+    echo"Hell Ram how are you Through URL";
 });
 
 Route::get('/Shyam', function(){
-    echo"Hell shyam Through url";
+    echo"Hell shyam Through  URL";
 });
 
 Route::get('/Hari', function(){
-    echo"Hell Hari Through url";
+    echo"Hell Hari Through  URL";
 });
 // 
 Route::get('/Jp', function(){
-    echo"Hell jp Through url";
+    echo"Hell jp Through  URL";
 });
 
 Route::get('/Krishna', function(){
-    echo"Hell krishna  how are you Through url";
+    echo"Hell krishna  how are you Through  URL";
 });
 
 
 //Through route() .....................................................!!
 
 Route::get('/man',function(){
-echo"Hello ram how are you through Route1_!";
+echo"Hello Ram how are you through Route1_!";
 })->name('route1');
 
 
