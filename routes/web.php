@@ -59,3 +59,7 @@ Route::get('/krishna',function(){
 
     
     Route::get('/table','tablecontroller@table1')->name('table');
+
+
+    
+    Route::get('/users','UsersController@index')->name('users.index');
