@@ -71,3 +71,8 @@ Route::get('/krishna',function(){
 Route::get('/users','UsersController@index')->name('users.index');
 Route::get('/users/create','UsersController@create')->name('users.create');
 Route::POST('/users/store','UsersController@store')->name('users.store');
+
+// How to delete and update data from table...............................................!!
+Route::get('/users/delete/{id}','UsersController@delete')->name('users.delete');
+Route::get('/users/edit/{id}','UsersController@edit')->name('users.edit');
+Route::post('/users/update/{id}','UsersController@update')->name('users.update');

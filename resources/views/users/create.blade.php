@@ -21,6 +21,14 @@
     <input type="email" name="email" class="form-control" id="" aria-describedby="emailHelp">
   </div>
 
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Phone</label>
+    <input type="text" name="phone" class="form-control" id="" aria-describedby="emailHelp">
+  </div>
+
+
+
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password"  name="password" class="form-control" id="">
