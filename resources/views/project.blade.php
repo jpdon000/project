@@ -7,25 +7,31 @@
 </head>
 <body>
     <table border="1" >
+        <h1><caption>Users Table</caption></h1>
 <thead>
     <tr>
         <th>S.N</th>
         <th>Name</th>
+        <th>Address</th>
         <th>Email</th>
-       
+        <th>Gender</th>
+        <th>DOB</th>
+        <th>Status</th>
     </tr>
 </thead>
 
 <tbody>
+    @foreach($jps as $jp)
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{$loop->iteration}}</td>
+        <td>{{$jp->Name}}</td>
+        <td>{{$jp->Address}}</td>
+        <td>{{$jp->Email_verifed_at}}</td>
+        <td>{{$jp->Gender}}</td>
+        <td>{{$jp->DOB}}</td>
+        <td>{{$jp->Status}}</td>
     </tr>
+    @endforeach
 </tbody>
 
 

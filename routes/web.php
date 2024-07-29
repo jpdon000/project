@@ -54,12 +54,20 @@ Route::get('/krishna',function(){
 
 
 // call to table......................................!!
-
     Route::get('/jp','JpController@index')->name('table5');
-
-    
     Route::get('/table','tablecontroller@table1')->name('table');
 
 
+    //To fetch data from table .............................!!
+    Route::get('/final','UsersController@index')->name('users.index');
+
+//itself To try fetch data from table .............................!!
+    Route::get('/fi','ProjectController@index')->name('project.index');
+
+
     
-    Route::get('/users','UsersController@index')->name('users.index');
+// To insert form data into table and then fetch this data in the table...........!!
+
+Route::get('/users','UsersController@index')->name('users.index');
+Route::get('/users/create','UsersController@create')->name('users.create');
+Route::POST('/users/store','UsersController@store')->name('users.store');
