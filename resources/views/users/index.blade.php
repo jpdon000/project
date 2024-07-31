@@ -12,6 +12,10 @@
         background-color:cyan;
         margin-left:40px;
     }
+    thead{
+        background-color:black;
+        color:white;
+    }
 </style>
 
 

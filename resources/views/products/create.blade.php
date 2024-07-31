@@ -23,8 +23,8 @@
 
   </head>
 <body>
-<h1>Users_Form</h1>
-<form action='{{route("users.store")}}' method='POST'>
+<h1>Products</h1>
+<form action='{{route("products.store")}}' method='POST'>
 @csrf
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -32,21 +32,28 @@
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input type="email" name="email" class="form-control" id="" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="form-label">Price</label>
+    <input type="text" name="price" class="form-control" id="" aria-describedby="emailHelp">
+  </div>
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Description</label>
+    <input type="text" name="description" class="form-control" id="" aria-describedby="emailHelp">
   </div>
 
-
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Phone</label>
-    <input type="text" name="phone" class="form-control" id="" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="form-label">Category</label>
+    <input type="text" name="category" class="form-control" id="" aria-describedby="emailHelp">
   </div>
 
-
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Quantity</label>
+    <input type="text" name="quantity" class="form-control" id="" aria-describedby="emailHelp">
+  </div>
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password"  name="password" class="form-control" id="">
+    <label for="exampleInputEmail1" class="form-label">Status</label>
+    <input type="text" name="status" class="form-control" id="" aria-describedby="emailHelp">
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
