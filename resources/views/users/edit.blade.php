@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action='{{route("users.update",$user->id)}}' method='POST'>
+<form action='{{route("users.update",$user->id)}}' enctype="multipart/form-data" method='POST'>
 @csrf
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -33,6 +33,19 @@
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password"  name="password"    class="form-control" id=""  value="{{$user->password}}">
   </div>
+
+  
+  
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Image</label>
+    <input type="file"  name="image" class="form-control" id="">
+  </div>
+
+  @if($user->id)
+
+  <a href="{{asset('uploads_user').'/'.$user->image}}" target='_blank'><img src="{{asset('uploads_user').'/'.$user->image}}" width="50" height="50" alt=""></a>
+ 
+  @endif
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

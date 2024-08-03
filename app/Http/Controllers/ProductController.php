@@ -19,13 +19,23 @@ class ProductController extends Controller
 
 
     public function store(Request $request){      // For store data.........................!!
+        $image = '';
+        if($request->image && $request->hasfile('image')){
+          $file = $request->image;
+          $filename = time().'-'.rand(1000,100000).'-'. $file->getClientOriginalName();
+          $path = public_path().'/uploads'; 
+          $file->move($path,$filename);
+          $image = $filename;
+        }
+        
         $data = [
           'name' => $request->get('name'),
           'price' => $request->get('price'),
           'description' => $request->get('description'),
           'category' => $request->get('category'),
           'quantity' => $request->get('quantity'),
-          'status' => $request->get('status')
+          'status' => $request->get('status'),
+          'image' => $image
         ];
         products::insert($data);
         return redirect()->route('products.index');
@@ -69,18 +79,30 @@ class ProductController extends Controller
         {
             return redirect()->back();
         }
-     $data = products::find($id);
-     if($data)
-     {
-        $data=[
+     $dat = products::find($id);
+     if($dat){
+
+        $image = '';
+        if($request->image && $request->hasfile('image')){
+          $delete_path=public_path().'/uploads'.$dat->image; 
+          $file = $request->image;
+          $filename = time().'-'.rand(1000,100000).'-'. $file->getClientOriginalName();
+          $path = public_path().'/uploads'; 
+          $file->move($path,$filename);
+          $image = $filename;
+        }
+       
+
+        $dat=[
             'name' => $request->get('name'),
             'price' => $request->get('price'),
             'description' => $request->get('description'),
             'category' => $request->get('category'),
             'quantity' => $request->get('quantity'),
-            'status' => $request->get('status')
+            'status' => $request->get('status'),
+            'image' =>  $image
         ];
-        products::where('id',$id)->update($data);
+        products::where('id',$id)->update($dat);
         return redirect()->route('products.index');
      }
           return redirect()->back();

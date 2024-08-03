@@ -21,6 +21,9 @@
         text-align:center;
         margin-top:10px;
     }
+    img{
+      border-radius:5%;
+    }
 
 </style>
 
@@ -41,6 +44,7 @@
       <th scope="col">Quantity</th>
       <th scope="col">Category</th>
       <th scope="col">Status</th>
+      <th scope="col">Image</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -54,6 +58,7 @@
       <td>{{$product->quantity}}</td>
       <td>{{$product->category}}</td>
       <td>{{$product->status}}</td>
+      <td><a href="{{asset('uploads').'/'.$product->image}}" target='_blank'><img src="{{asset('uploads').'/'.$product->image}}" width="60" height="60" alt="" ></a></td>
       <td><a href="{{route('products.edit',$product->id)}}" class="btn btn-primary">Edit</a>|<a href="{{route('products.delete',$product->id)}}" class="btn btn-danger">Delete</a></td>
   
     </tr>

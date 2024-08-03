@@ -24,7 +24,7 @@
   </head>
 <body>
 <h1>Products</h1>
-<form action='{{route("products.update",$data->id)}}' method='POST'>
+<form action='{{route("products.update",$data->id)}}' enctype="multipart/form-data" method='POST'>
 @csrf
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -53,6 +53,17 @@
     <input type="text" name="status" class="form-control" id="" aria-describedby="emailHelp" value="{{$data->status}}">
   </div>
 
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Image</label>
+    <input type="file" name="image" class="form-control" id="" aria-describedby="emailHelp" value="{{$data->image}}">
+  </div>
+
+  @if($data->id)
+
+  <a href="{{asset('uploads').'/'.$data->image}}" target='_blank'><img src="{{asset('uploads').'/'.$data->image}}" width="60" height="60" alt="" ></a>
+
+  @endif
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
     

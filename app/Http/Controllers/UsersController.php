@@ -18,14 +18,25 @@ class UsersController extends Controller
     }
 
      public function store(Request $request){      // For store data.........................!!
-      $data = [
+     
+        $image = '';
+        if($request->image && $request->hasfile('image')){
+            $file = $request->image;
+            $filename = time().'-'.rand(1000,100000).'-'.$file->getClientOriginalName();
+            $path = public_path().'/uploads_user';
+            $file->move($path,$filename);
+            $image = $filename;
+        }
+     
+        $data = [
         'name' => $request->get('name'),
         'email' => $request->get('email'),
         'phone' => $request->get('phone'),
-        'password' => $request->get('password')
+        'password' => $request->get('password'),
+        'image'=> $image
       ];
       User::insert($data);
-      return redirect()->route('users.index');
+      return redirect()->route('users.index')->with('message','Data is inserted successfully');
      }
 
 
@@ -40,10 +51,10 @@ class UsersController extends Controller
         if($user)
         {
             $user->delete();
+            return redirect()->back()->with('message','Data is deleted successfully');
+        }
             return redirect()->back();
         }
-        return redirect()->back();
-     }
 
 
      public function edit($id){                  // For edit..............................!!
@@ -70,17 +81,37 @@ class UsersController extends Controller
 
         $user = User::find($id);
         if($user){
+
+            $image = '';
+            if($request->image && $request->hasfile('image')){
+                $delete_path = public_path().'/uploads_user'.$user->image;
+                $file = $request->image;
+                $filename = time().'-'.rand(1000,100000).'-'.$file->getClientOriginalName();
+                $path = public_path().'/uploads_user';
+                $file->move($path,$filename);
+                $image = $filename;
+            }
+
             $data = [
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
-                'password' => $request->get('password')
-              ];
+                'password' => $request->get('password'),
+                'image' =>  $image
+              ];    
               User::where('id',$id)->update($data);
-              return redirect()->route('users.index');
+              return redirect()->route('users.index')->with('message','Data is updated successfully');
         }
         return redirect()->back();
        }
 
 }
 
+
+
+
+
+// Insert:- In this method, we  all data are submit .This data are show directly is True or Falsezzz
+
+
+// create:- In this method, we  all data are submit . What data we are  submitted this data are show 

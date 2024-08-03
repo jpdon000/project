@@ -24,7 +24,7 @@
   </head>
 <body>
 <h1>Users_Form</h1>
-<form action='{{route("users.store")}}' method='POST'>
+<form action='{{route("users.store")}}' enctype="multipart/form-data"  method='POST'>
 @csrf
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -47,6 +47,12 @@
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password"  name="password" class="form-control" id="">
+  </div>
+
+  
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Image</label>
+    <input type="file"  name="image" class="form-control" id="">
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
