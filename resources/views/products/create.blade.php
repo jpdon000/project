@@ -31,6 +31,22 @@
 <body>
 <h1>Products</h1>
 <div class="main rouded-pill">
+
+
+ 
+@if ($errors->any())
+    <div class="alert alert-primary">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+ 
+
+
+
 <form action='{{route("products.store")}}' enctype="multipart/form-data" method='POST'>
 @csrf
 <div class="mb-3">

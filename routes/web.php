@@ -76,7 +76,7 @@ Route::get('/krishna',function(){
 
 
 // for Products I absent in this class this class day......................................!!
-Route::get('/products','ProductController@index')->name('products.index');
+Route::get('/products','ProductController@index')->name('products.index'); //->middleware('auth');
 Route::get('/products/create','ProductController@create')->name('products.create');
 Route::post('/products/store','ProductController@store')->name('products.store');
 Route::get('/products/delete/{id}','ProductController@delete')->name('products.delete');
@@ -84,4 +84,9 @@ Route::get('/products/edit/{id}','ProductController@edit')->name('products.edit'
 Route::post('/products/update/{id}','ProductController@update')->name('products.update');
 
 
-// 
+// for login form..........................................!!
+
+Route::view('/login', 'customeauth.login');
+Route::post('/login/check', 'AuthController@login')->name('login.check');
+
+

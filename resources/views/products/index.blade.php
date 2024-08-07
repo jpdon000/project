@@ -24,12 +24,30 @@
     img{
       border-radius:5%;
     }
+    .message{
+        text-align:center;
+        margin-left:400px;
+        margin-right:400px;
+        color:white;
+        font-size:20px;
+    }
 
 </style>
 
 </head>
 <body>
 <h1>Produncts Table</h1>
+
+<div class="message">
+    @if(session()->has('message'))
+        <div class="alert  bg-success">
+        {{session()->get('message')}}
+        </div>
+    @endif
+</div>
+
+
+
 <br><br>
 <a href="{{route('products.create')}}" style="margin-left:30px;" class="btn btn-primary ">Create</a>
 <br><br>

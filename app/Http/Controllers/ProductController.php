@@ -19,6 +19,14 @@ class ProductController extends Controller
 
 
     public function store(Request $request){      // For store data.........................!!
+     $request->validate([
+        'name' => 'required',
+        'price' => 'required',
+        'image' => 'required|mimes:jpeg,bmp,png,jpg'
+     ]);
+
+
+
         $image = '';
         if($request->image && $request->hasfile('image')){
           $file = $request->image;
@@ -38,7 +46,7 @@ class ProductController extends Controller
           'image' => $image
         ];
         products::insert($data);
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('message','Data inserted successfully');
        }
 
 
@@ -67,7 +75,7 @@ class ProductController extends Controller
      if($data)
      {
         $data->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message','Data deleted successfully');;
      }
      return redirect()->back();
     }
@@ -100,10 +108,11 @@ class ProductController extends Controller
             'category' => $request->get('category'),
             'quantity' => $request->get('quantity'),
             'status' => $request->get('status'),
-            'image' =>  $image
+            'image' => $image
+        
         ];
         products::where('id',$id)->update($dat);
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('message','Data updated successfully');;
      }
           return redirect()->back();
     }
