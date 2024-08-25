@@ -32,7 +32,7 @@ class UsersController extends Controller
         'name' => $request->get('name'),
         'email' => $request->get('email'),
         'phone' => $request->get('phone'),
-        'password' => $request->get('password'),
+        'password' =>bcrypt($request->get('password')),
         'image'=> $image
       ];
       User::insert($data);

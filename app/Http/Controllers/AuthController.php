@@ -24,16 +24,40 @@ class AuthController extends Controller
         if($user){
             if(Hash::check($request->password, $user->password)){
             Auth::login($user);
-            return redirect()->route('product.index');
-    }
-    
-    $request->session()->flash('error','Check 1st email and password');
-    return redirect()->back();
+            $request->session()->flash('sucess','login successfully');
+            return redirect()->route('products.index');
+           
 
-    }
-    
-    $request->session()->flash('error','Check 2nd email and password');
-    return redirect()->back();
+        }else{
+        $request->session()->flash('error','check your email and password');
+        return redirect()->back();
+        }
 
-  }
+  }else{
+    $request->session()->flash('error',' check your email and password');
+    return redirect()->back();
+}
+}
+
+
+public function store(Request $request){
+    $request->validate([
+        'name' => 'required',
+        'username' => 'required|unique:users,username',
+        'email' => 'required|unique:users,email',
+        'password' => 'required|min:6|confirmed'
+    ]);
+
+
+    $data =[
+        'name'=> $request->get('name'),
+        'username'=>$request->get('username'),
+        'email'=>$request->get('email'),
+        'phone' => $request->get('phone'),
+        'password' =>bcrypt($request->password)
+    ];
+    User::insert($data);
+    $request->session()->flash('success','Create successfully');
+    return redirect()->route('login');
+}
 }

@@ -1,3 +1,8 @@
+
+
+@extends('backend.master')
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
     }
     .table{
         background-color:cyan;
-        margin-left:40px;
+       
     }
     thead{
         background-color:black;
@@ -48,8 +53,8 @@
 
 
     <br> 
-       <a href="{{route('users.create')}}" style="margin-left:40px;" class="btn btn-primary">Create</a>
-       <br> <br>
+       <a href="{{route('users.create')}}" style="margin-left:30px; margin-right:1000px;" class="btn btn-primary">Create</a>
+       <br> 
 
     <table border="1" class='table'>
 <thead>
@@ -78,3 +83,4 @@
     </table>
 </body>
 </html>
+@endsection

@@ -86,7 +86,10 @@ Route::post('/products/update/{id}','ProductController@update')->name('products.
 
 // for login form..........................................!!
 
-Route::view('/login', 'customeauth.login');
+Route::view('/login','customeauth.login')->name('login');
+Route::view('/test','backend.dashboard')->name('test');
 Route::post('/login/check', 'AuthController@login')->name('login.check');
 
-
+//for Register..........................................!!
+Route::view('/register','customeauth.register')->name('register');
+Route::post('/register/store','AuthController@store')->name('register.store');

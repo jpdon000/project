@@ -1,3 +1,8 @@
+
+@extends('backend.master')
+@section('content')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +14,7 @@
 <style>
     table{
         background-color:cyan;
-        margin-left:30px;
+        margin-left:0px;
 
     }
 
@@ -39,18 +44,21 @@
 <h1>Produncts Table</h1>
 
 <div class="message">
-    @if(session()->has('message'))
-        <div class="alert  bg-success">
-        {{session()->get('message')}}
-        </div>
-    @endif
+@if(session('success'))
+<div class="alert alert-success" role="alert">
+    {{ session('success')}}
+</div>
+@endif
+
+
+    
 </div>
 
 
 
-<br><br>
-<a href="{{route('products.create')}}" style="margin-left:30px;" class="btn btn-primary ">Create</a>
-<br><br>
+
+<a href="{{route('products.create')}}" style="margin-left:30px; margin-right:1000px;" class="btn btn-primary ">Create</a>
+<br>
 
 <table class="table">
   <thead>
@@ -90,3 +98,5 @@
 </table>
 </body>
 </html>
+
+@endsection

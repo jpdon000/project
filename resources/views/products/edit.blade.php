@@ -1,3 +1,10 @@
+
+
+@extends('backend.master')
+@section('content')
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,3 +76,4 @@
     
 </body>
 </html>
+@endsection
